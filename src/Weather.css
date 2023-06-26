@@ -1,0 +1,17 @@
+.box {
+  margin-top: 15px;
+  background-color: #4468ac;
+  border-radius: 34px;
+  padding: 27px;
+}
+.box-item {
+  background-color: #5f85cb;
+  border-radius: 34px;
+  padding: 15px;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  padding-right: 20px;
+}
