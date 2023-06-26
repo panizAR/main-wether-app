@@ -26,3 +26,11 @@ li {
   color: rgb(170, 170, 170);
   cursor: pointer;
 }
+.container {
+    width: 50%;
+  }
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 100% !important;
+  }
+}
