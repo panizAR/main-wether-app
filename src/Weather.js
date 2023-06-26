@@ -145,9 +145,9 @@ export default function weather() {
         </div>
       </div>
       <div className="text-center mt-3">
-        This project was coded by Paniz Rangraz and is open-sourced on{" "}
+        This project was coded by Paniz Rangraz and is open-sourced on
         <a href="https://github.com/panizAR/main-wether-app">GitHub</a> and
-        hosted on Netlify
+        hosted on
         <a href="https://bright-quokka-7dd6e7.netlify.app/">Netlify</a>
       </div>
     </div>
