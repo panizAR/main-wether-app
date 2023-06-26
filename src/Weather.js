@@ -182,7 +182,7 @@ export default function Weather() {
   } else {
     let apikey = "b40b135798f82a05aed08769f9275f50";
     let city = "london";
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
     axios.get(url).then(handledata);
     return "looding...";
   }
