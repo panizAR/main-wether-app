@@ -4,8 +4,9 @@ import "./Weather.css";
 import axios from "axios";
 import Dateformat from "./Dateformat";
 
-export default function Weather() {
+export default function Weather(props) {
   const [weatherdata, setWeatherdata] = useState({ ready: false });
+  const [cityname, setCityname] = useState(props.city);
 
   function handledata(response) {
     console.log(response.data);
@@ -18,20 +19,35 @@ export default function Weather() {
       wind: response.data.wind.speed,
       pressure: response.data.main.pressure,
       date: new Date(response.data.dt * 1000),
+      iconsrc: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
+  }
+  function Search() {
+    let apikey = "b40b135798f82a05aed08769f9275f50";
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apikey}&units=metric`;
+    axios.get(url).then(handledata);
+  }
+
+  function Formsubmited(event) {
+    event.preventDefault();
+    Search();
+  }
+  function CityNamechange(event) {
+    setCityname(event.target.value);
   }
 
   if (weatherdata.ready) {
     return (
       <div>
         <div className="box text-white">
-          <form>
+          <form onSubmit={Formsubmited}>
             <div className="row">
               <div className="col-9">
                 <input
                   type="search"
                   placeholder="Enter a city.."
                   className="form-control"
+                  onChange={CityNamechange}
                 />
               </div>
 
@@ -65,11 +81,7 @@ export default function Weather() {
               </p>
             </div>
             <div className="col-6 text-center ">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                alt="weathericon"
-                className="w-25"
-              ></img>
+              <img src='${weatherdata.description}' className="w-25"></img>
             </div>
           </div>
 
@@ -183,10 +195,7 @@ export default function Weather() {
       </div>
     );
   } else {
-    let apikey = "b40b135798f82a05aed08769f9275f50";
-    let city = "london";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
-    axios.get(url).then(handledata);
+    Search();
     return "loading...";
   }
 }
