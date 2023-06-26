@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
 import Dateformat from "./Dateformat";
+import Weathericon from "./Weathericon";
+
 
 export default function Weather(props) {
   const [weatherdata, setWeatherdata] = useState({ ready: false });
@@ -19,7 +21,7 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       pressure: response.data.main.pressure,
       date: new Date(response.data.dt * 1000),
-      iconsrc: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
     });
   }
   function Search() {
@@ -81,7 +83,7 @@ export default function Weather(props) {
               </p>
             </div>
             <div className="col-6 text-center ">
-              <img src='${weatherdata.description}' className="w-25"></img>
+              <Weathericon data={weatherdata.icon} />
             </div>
           </div>
 
@@ -90,7 +92,7 @@ export default function Weather(props) {
               <div className="box-item">
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="weathericon"
+                  alt="iconimg"
                   className="w-25"
                 ></img>
                 <p>Humidity</p>
@@ -104,7 +106,7 @@ export default function Weather(props) {
               <div className="box-item">
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="weathericon"
+                  alt="iconimg"
                   className="w-25"
                 ></img>
                 <p>Wind</p>
@@ -118,7 +120,7 @@ export default function Weather(props) {
               <div className="box-item">
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="weathericon"
+                  alt="iconimg"
                   className="w-25"
                 ></img>
                 <p>pressure</p>
@@ -135,7 +137,7 @@ export default function Weather(props) {
                 <p>Mon</p>
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="weathericon"
+                  alt="iconimg"
                 ></img>
                 <p>16°c 16°c</p>
               </div>
@@ -146,7 +148,7 @@ export default function Weather(props) {
                 <p>Mon</p>
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="weathericon"
+                  alt="iconimg"
                 ></img>
                 <p>16°c 16°c</p>
               </div>
@@ -157,7 +159,7 @@ export default function Weather(props) {
                 <p>Mon</p>
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="weathericon"
+                  alt="iconimg"
                 ></img>
                 <p>16°c 16°c</p>
               </div>
@@ -168,7 +170,7 @@ export default function Weather(props) {
                 <p>Mon</p>
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="weathericon"
+                  alt="iconimg"
                 ></img>
                 <p>16°c 16°c</p>
               </div>
@@ -179,7 +181,7 @@ export default function Weather(props) {
                 <p>Mon</p>
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="weathericon"
+                  alt="iconimg"
                 ></img>
                 <p>16°c 16°c</p>
               </div>
