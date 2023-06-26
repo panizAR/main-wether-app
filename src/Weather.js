@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "./Weather.css";
 import axios from "axios";
+import Dateformat from "./Dateformat";
 
 export default function Weather() {
   const [weatherdata, setWeatherdata] = useState({ ready: false });
@@ -16,7 +17,7 @@ export default function Weather() {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       pressure: response.data.main.pressure,
-      date: "Sunday 21:15",
+      date: new Date(response.data.dt * 1000),
     });
   }
 
@@ -47,7 +48,9 @@ export default function Weather() {
           <div className="row mt-2">
             <h1>{weatherdata.city}</h1>
             <ul>
-              <li>{weatherdata.date}</li>
+              <li>
+                <Dateformat data={weatherdata.date} />
+              </li>
               <li>{weatherdata.description}</li>
             </ul>
           </div>
