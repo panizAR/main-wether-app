@@ -4,8 +4,7 @@ import "./Weather.css";
 import axios from "axios";
 
 export default function Weather() {
-
-  const [weatherdata, setWeatherdata] = useState({ready:false});
+  const [weatherdata, setWeatherdata] = useState({ ready: false });
 
   function handledata(response) {
     console.log(response.data);
@@ -181,8 +180,8 @@ export default function Weather() {
       </div>
     );
   } else {
-    let apikey = "62bc298785543e137bc6756e514eb1c3";
-    let city = "New York";
+    let apikey = "b40b135798f82a05aed08769f9275f50";
+    let city = "london";
     let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
     axios.get(url).then(handledata);
     return "looding...";
