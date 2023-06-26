@@ -1,6 +1,6 @@
 import React from "react";
 
-function addZero(i) {
+function addZeronumber(i) {
   if (i < 10) {
     i = "0" + i;
   }
@@ -8,8 +8,8 @@ function addZero(i) {
 }
 export default function Dateformat(props) {
   let day = props.data.getDay();
-  let hours = addZero(props.data.getHours());
-  let min = addZero(props.data.getMinutes());
+  let hours = addZeronumber(props.data.getHours());
+  let min = addZeronumber(props.data.getMinutes());
 
   const daysOfWeek = [
     "Sunday",
