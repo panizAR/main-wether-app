@@ -19,7 +19,7 @@ export default function Converettemp(props) {
       <div className="tempbox d-flex justify-content-center"> 
         <span className="temperature display-2 fw-bold">{props.temp}</span>
         <span className="unit">
-          °C | <a href="#" onClick={Tofaren}>°F</a>
+          °C | <a href="/" onClick={Tofaren}>°F</a>
         </span>
       </div>
     );
@@ -29,7 +29,7 @@ export default function Converettemp(props) {
       <div className="tempbox d-flex justify-content-center"> 
         <span className="temperature display-2 fw-bold">{farentemp}</span>
         <span className="unit">
-          <a href="#" onClick={Tocel}>°C</a> | °F
+          <a href="/" onClick={Tocel}>°C</a> | °F
         </span>
       </div>
     );
