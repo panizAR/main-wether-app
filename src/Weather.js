@@ -4,16 +4,24 @@ import "./Weather.css";
 import axios from "axios";
 
 export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [temprature, setTemprature] = useState(null);
+
+  const [weatherdata, setWeatherdata] = useState({ready:false});
 
   function handledata(response) {
     console.log(response.data);
-    setTemprature(response.data.main.temp);
-    setReady(true);
+    setWeatherdata({
+      ready: true,
+      city: response.data.name,
+      description: response.data.weather[0].description,
+      temprature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      pressure: response.data.main.pressure,
+      date: "Sunday 21:15",
+    });
   }
 
-  if (ready) {
+  if (weatherdata.ready) {
     return (
       <div>
         <div className="box text-white">
@@ -38,17 +46,19 @@ export default function Weather() {
           </form>
 
           <div className="row mt-2">
-            <h1>New York</h1>
+            <h1>{weatherdata.city}</h1>
             <ul>
-              <li>Sunday 21:15</li>
-              <li>Broken Clouds</li>
+              <li>{weatherdata.date}</li>
+              <li>{weatherdata.description}</li>
             </ul>
           </div>
 
           <div className="row">
             <div className="col-6 text-center ">
               <p className="display-1 fw-bold">
-                <span className="temprature">{Math.round(temprature)}</span>
+                <span className="temprature">
+                  {Math.round(weatherdata.temprature)}
+                </span>
                 <span className="unit">°c</span>
               </p>
             </div>
@@ -70,7 +80,9 @@ export default function Weather() {
                   className="w-25"
                 ></img>
                 <p>Humidity</p>
-                <p>58%</p>
+                <p>
+                  <span>{weatherdata.humidity}</span> %
+                </p>
               </div>
             </div>
 
@@ -82,7 +94,9 @@ export default function Weather() {
                   className="w-25"
                 ></img>
                 <p>Wind</p>
-                <p>27 km/h</p>
+                <p>
+                  <span>{weatherdata.wind}</span> km/h
+                </p>
               </div>
             </div>
 
@@ -93,8 +107,10 @@ export default function Weather() {
                   alt="weathericon"
                   className="w-25"
                 ></img>
-                <p>Precipitation</p>
-                <p>0%</p>
+                <p>pressure</p>
+                <p>
+                  <span>{weatherdata.pressure}</span>
+                </p>
               </div>
             </div>
           </div>
@@ -158,9 +174,9 @@ export default function Weather() {
         </div>
         <div className="text-center mt-3">
           This project was coded by Paniz Rangraz and is open-sourced on
-          <a href="https://github.com/panizAR/main-wether-app">GitHub</a> and
+          <a href="https://github.com/panizAR/main-wether-app"> GitHub</a> and
           hosted on
-          <a href="https://bright-quokka-7dd6e7.netlify.app/">Netlify</a>
+          <a href="https://bright-quokka-7dd6e7.netlify.app/"> Netlify</a>
         </div>
       </div>
     );
@@ -169,6 +185,6 @@ export default function Weather() {
     let city = "New York";
     let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
     axios.get(url).then(handledata);
-    return "loding...";
+    return "looding...";
   }
 }
