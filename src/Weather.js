@@ -4,7 +4,7 @@ import "./Weather.css";
 import axios from "axios";
 import Dateformat from "./Dateformat";
 import Weathericon from "./Weathericon";
-
+import Converettemp from "./Converettemp";
 
 export default function Weather(props) {
   const [weatherdata, setWeatherdata] = useState({ ready: false });
@@ -75,11 +75,8 @@ export default function Weather(props) {
 
           <div className="row">
             <div className="col-6 text-center ">
-              <p className="display-1 fw-bold">
-                <span className="temprature">
-                  {Math.round(weatherdata.temprature)}
-                </span>
-                <span className="unit">°c</span>
+              <p>
+                <Converettemp temp={Math.round(weatherdata.temprature)} />
               </p>
             </div>
             <div className="col-6 text-center ">

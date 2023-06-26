@@ -21,3 +21,8 @@ li {
 .box-item-pre p {
   margin: 0;
 }
+.tempbox a {
+  text-decoration: none;
+  color: rgb(170, 170, 170);
+  cursor: pointer;
+}
