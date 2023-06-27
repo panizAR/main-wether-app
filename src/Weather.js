@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import imgwind from "./Wind.png";
+import imgpressure from "./pressure.png";
+import imghumidity from "./humidity.png";
 
 import "./Weather.css";
 import axios from "axios";
@@ -87,11 +90,7 @@ export default function Weather(props) {
           <div className="row">
             <div className="col-4 text-center">
               <div className="box-item">
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="iconimg"
-                  className="w-25"
-                ></img>
+                <img src={imghumidity} alt="iconimg" className="w-25"></img>
                 <p>Humidity</p>
                 <p>
                   <span>{weatherdata.humidity}</span> %
@@ -101,11 +100,7 @@ export default function Weather(props) {
 
             <div className="col-4 text-center">
               <div className="box-item">
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="iconimg"
-                  className="w-25"
-                ></img>
+                <img src={imgwind} alt="iconimg" className="w-25"></img>
                 <p>Wind</p>
                 <p>
                   <span>{weatherdata.wind}</span> km/h
@@ -115,11 +110,7 @@ export default function Weather(props) {
 
             <div className="col-4 text-center">
               <div className="box-item">
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="iconimg"
-                  className="w-25"
-                ></img>
+                <img src={imgpressure} alt="iconimg" className="w-25" />
                 <p>pressure</p>
                 <p>
                   <span>{weatherdata.pressure}</span>
