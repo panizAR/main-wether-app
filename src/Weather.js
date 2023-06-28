@@ -8,13 +8,13 @@ import axios from "axios";
 import Dateformat from "./Dateformat";
 import Weathericon from "./Weathericon";
 import Converettemp from "./Converettemp";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   const [weatherdata, setWeatherdata] = useState({ ready: false });
   const [cityname, setCityname] = useState(props.city);
 
   function handledata(response) {
-    console.log(response.data);
     setWeatherdata({
       ready: true,
       city: response.data.name,
@@ -25,8 +25,10 @@ export default function Weather(props) {
       pressure: response.data.main.pressure,
       date: new Date(response.data.dt * 1000),
       icon: response.data.weather[0].icon,
+      coord: response.data.coord,
     });
   }
+
   function Search() {
     let apikey = "b40b135798f82a05aed08769f9275f50";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apikey}&units=metric`;
@@ -83,7 +85,7 @@ export default function Weather(props) {
               </p>
             </div>
             <div className="col-6 text-center ">
-              <Weathericon data={weatherdata.icon} />
+              <Weathericon data={weatherdata.icon} size={90} />
             </div>
           </div>
 
@@ -119,59 +121,7 @@ export default function Weather(props) {
             </div>
           </div>
 
-          <div className="row justify-content-between mt-3">
-            <div className="col-2 text-center">
-              <div className="box-item-pre">
-                <p>Mon</p>
-                <Weathericon data={weatherdata.icon} />
-                <p>16°c 16°c</p>
-              </div>
-            </div>
-
-            <div className="col-2 text-center">
-              <div className="box-item-pre">
-                <p>Mon</p>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="iconimg"
-                ></img>
-                <p>16°c 16°c</p>
-              </div>
-            </div>
-
-            <div className="col-2 text-center">
-              <div className="box-item-pre">
-                <p>Mon</p>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="iconimg"
-                ></img>
-                <p>16°c 16°c</p>
-              </div>
-            </div>
-
-            <div className="col-2 text-center">
-              <div className="box-item-pre">
-                <p>Mon</p>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="iconimg"
-                ></img>
-                <p>16°c 16°c</p>
-              </div>
-            </div>
-
-            <div className="col-2 text-center">
-              <div className="box-item-pre">
-                <p>Mon</p>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="iconimg"
-                ></img>
-                <p>16°c 16°c</p>
-              </div>
-            </div>
-          </div>
+          <WeatherForecast data={weatherdata.icon} coords={weatherdata.coord} />
         </div>
 
         <div className="text-center mt-3">
