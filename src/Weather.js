@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import imgwind from "./Wind.png";
 import imgpressure from "./pressure.png";
 import imghumidity from "./humidity.png";
-import WeatherDailyForcast from "./WeatherDailyForcast";
 
 import "./Weather.css";
 import axios from "axios";
@@ -120,7 +119,59 @@ export default function Weather(props) {
             </div>
           </div>
 
-          <WeatherDailyForcast />
+          <div className="row justify-content-between mt-3">
+            <div className="col-2 text-center">
+              <div className="box-item-pre">
+                <p>Mon</p>
+                <Weathericon data={weatherdata.icon} />
+                <p>16°c 16°c</p>
+              </div>
+            </div>
+
+            <div className="col-2 text-center">
+              <div className="box-item-pre">
+                <p>Mon</p>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="iconimg"
+                ></img>
+                <p>16°c 16°c</p>
+              </div>
+            </div>
+
+            <div className="col-2 text-center">
+              <div className="box-item-pre">
+                <p>Mon</p>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="iconimg"
+                ></img>
+                <p>16°c 16°c</p>
+              </div>
+            </div>
+
+            <div className="col-2 text-center">
+              <div className="box-item-pre">
+                <p>Mon</p>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="iconimg"
+                ></img>
+                <p>16°c 16°c</p>
+              </div>
+            </div>
+
+            <div className="col-2 text-center">
+              <div className="box-item-pre">
+                <p>Mon</p>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="iconimg"
+                ></img>
+                <p>16°c 16°c</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="text-center mt-3">
