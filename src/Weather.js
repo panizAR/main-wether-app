@@ -49,7 +49,7 @@ export default function Weather(props) {
         <div className="box text-white">
           <form onSubmit={Formsubmited}>
             <div className="row">
-              <div className="col-9">
+              <div className="col-sm-9">
                 <input
                   type="search"
                   placeholder="Enter a city.."
@@ -58,7 +58,7 @@ export default function Weather(props) {
                 />
               </div>
 
-              <div className="col-3">
+              <div className="col-sm-3 mt-2 mt-sm-0">
                 <input
                   type="submit"
                   className="btn btn-primary w-100"
@@ -79,18 +79,18 @@ export default function Weather(props) {
           </div>
 
           <div className="row">
-            <div className="col-6 text-center ">
+            <div className="col-sm-6 text-center ">
               <p>
                 <Converettemp temp={Math.round(weatherdata.temprature)} />
               </p>
             </div>
-            <div className="col-6 text-center ">
+            <div className="col-sm-6 text-center ">
               <Weathericon data={weatherdata.icon} size={90} />
             </div>
           </div>
 
           <div className="row">
-            <div className="col-4 text-center">
+            <div className="col-sm-4 text-center">
               <div className="box-item">
                 <img src={imghumidity} alt="iconimg" className="w-25"></img>
                 <p>Humidity</p>
@@ -100,7 +100,7 @@ export default function Weather(props) {
               </div>
             </div>
 
-            <div className="col-4 text-center">
+            <div className="col-sm-4 text-center my-3 my-sm-0">
               <div className="box-item">
                 <img src={imgwind} alt="iconimg" className="w-25"></img>
                 <p>Wind</p>
@@ -110,7 +110,7 @@ export default function Weather(props) {
               </div>
             </div>
 
-            <div className="col-4 text-center">
+            <div className="col-sm-4 text-center">
               <div className="box-item">
                 <img src={imgpressure} alt="iconimg" className="w-25" />
                 <p>pressure</p>
