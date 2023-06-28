@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import imgwind from "./Wind.png";
 import imgpressure from "./pressure.png";
 import imghumidity from "./humidity.png";
+import WeatherDailyForcast from "./WeatherDailyForcast";
 
 import "./Weather.css";
 import axios from "axios";
@@ -119,63 +120,9 @@ export default function Weather(props) {
             </div>
           </div>
 
-          <div className="row justify-content-between mt-3">
-            <div className="col-2 text-center">
-              <div className="box-item-pre">
-                <p>Mon</p>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="iconimg"
-                ></img>
-                <p>16°c 16°c</p>
-              </div>
-            </div>
-
-            <div className="col-2 text-center">
-              <div className="box-item-pre">
-                <p>Mon</p>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="iconimg"
-                ></img>
-                <p>16°c 16°c</p>
-              </div>
-            </div>
-
-            <div className="col-2 text-center">
-              <div className="box-item-pre">
-                <p>Mon</p>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="iconimg"
-                ></img>
-                <p>16°c 16°c</p>
-              </div>
-            </div>
-
-            <div className="col-2 text-center">
-              <div className="box-item-pre">
-                <p>Mon</p>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="iconimg"
-                ></img>
-                <p>16°c 16°c</p>
-              </div>
-            </div>
-
-            <div className="col-2 text-center">
-              <div className="box-item-pre">
-                <p>Mon</p>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="iconimg"
-                ></img>
-                <p>16°c 16°c</p>
-              </div>
-            </div>
-          </div>
+          <WeatherDailyForcast />
         </div>
+
         <div className="text-center mt-3">
           This project was coded by Paniz Rangraz and is open-sourced on
           <a href="https://github.com/panizAR/main-wether-app"> GitHub</a> and
